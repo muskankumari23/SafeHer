@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHer Premium Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Partners</a>
+            <a href="#" class="nav-link">Safety Tips</a>
+            <a href="#" class="nav-link">Support</a>
+        </div>
+
+        <div class="nav-center">
+            <div class="logo-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" class="logo-img" alt="SafeHer Logo">
+                <span>SafeHer</span>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="profile-box" onclick="toggleProfilePanel()">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="profile-img" alt="Profile">
+                <span>{{ username }}</span>
+                <i class="fa-solid fa-angle-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div id="profilePanel" class="profile-panel">
+        <div class="profile-panel-header">
+            <h3>Profile Details</h3>
+            <button onclick="toggleProfilePanel()">×</button>
+        </div>
+
+        <div class="profile-panel-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="side-profile-img" alt="Profile">
+            <h4>{{ username }}</h4>
+            <p>SafeHer User</p>
+
+            <div class="panel-item"><i class="fa fa-user"></i> Name: {{ username }}</div>
+            <div class="panel-item"><i class="fa fa-shield-heart"></i> Status: Protected</div>
+            <div class="panel-item"><i class="fa fa-location-dot"></i> Tracking: Enabled</div>
+
+            <a href="{{ url_for('logout') }}" class="logout-panel-btn">Logout</a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p class="hero-pill">Women Safety • Smart Monitoring</p>
+            <h1>Your Safety,<br>Your Strength</h1>
+            <p>Track your live location, monitor risk and use instant SOS support.</p>
+            <button class="hero-btn">Get Started</button>
+        </div>
+
+        <div class="hero-card">
+            <h3>Protected & Connected</h3>
+            <p>Your AI safety tools are active and ready.</p>
+            <div class="mini-status">
+                <div><i class="fa-solid fa-location-dot"></i> Location On</div>
+                <div><i class="fa-solid fa-bell"></i> Alerts Ready</div>
+                <div><i class="fa-solid fa-phone-volume"></i> Emergency Set</div>
+                <div><i class="fa-solid fa-user-shield"></i> AI Active</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid-section">
+        <div class="map-card">
+            <div class="section-head">
+                <h2>Your Live Location</h2>
+                <span class="live-badge">Live</span>
+            </div>
+            <div id="map"></div>
+            <p id="locationStatus">Getting your location...</p>
+        </div>
+
+        <div class="side-cards">
+            <div class="risk-card">
+                <h2>Risk Level</h2>
+                <div id="riskLevel">LOW</div>
+                <p id="riskReason">No danger detected yet.</p>
+            </div>
+
+            <div class="sos-card">
+                <h2>Emergency Help</h2>
+                <p>Tap to alert trusted contacts immediately.</p>
+                <button id="sosBtn">SOS</button>
+            </div>
+
+            <div class="contact-card">
+                <h2>Emergency Contact</h2>
+                <input type="text" id="contactNumber" placeholder="Enter WhatsApp number with country code">
+                <button id="saveContactBtn">Save Contact</button>
+                <p id="savedContact">No contact saved yet.</p>
+                <p id="alertStatus">No alert sent yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="feature-card">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            <h3>Live Tracking</h3>
+            <p>Get your real-time location and use it during emergencies.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-bell"></i>
+            <h3>Instant Alerts</h3>
+            <p>Send fast alerts to trusted people with one tap.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-user-group"></i>
+            <h3>Trusted Contact</h3>
+            <p>Save an emergency contact and notify them instantly.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Safety Support</h3>
+            <p>Stay protected with quick access to emergency tools.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>SafeHer</h3>
+        <p>Empowering women with smart safety tools and real-time protection.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

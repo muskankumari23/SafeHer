@@ -1,0 +1,129 @@
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.auth-card {
+    width: 420px;
+    padding: 34px 30px;
+    text-align: center;
+}
+
+.brand-top-center {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.brand-top-center img {
+    width: 48px;
+    height: 48px;
+}
+
+.brand-top-center h1 {
+    font-size: 42px;
+    color: #d63384;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    color: #7c6171;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    border-radius: 22px;
+    background: #ecdbe6;
+    cursor: pointer;
+    font-weight: bold;
+    color: #7b4667;
+}
+
+.tab-btn.active {
+    background: linear-gradient(90deg, #ff5fa2, #d96bff);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #6e5263;
+    font-weight: 600;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d9bfd0;
+    padding: 10px 0;
+}
+
+.input-box i {
+    width: 20px;
+    margin-right: 12px;
+    color: #c02673;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 16px;
+}
+
+.full-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.otp-form {
+    margin-top: 16px;
+}
+
+.switch-text {
+    margin-top: 14px;
+    color: #6d5965;
+}
+
+.switch-text a {
+    color: #c02673;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.error-msg {
+    color: #d11a2a;
+    margin-bottom: 12px;
+}
+
+.success-msg {
+    color: #1f9d55;
+    margin-bottom: 12px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHer Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="theme-body">
+
+    <nav class="top-nav">
+        <div class="nav-brand center-brand">
+            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="logo">
+            <span>SafeHer</span>
+        </div>
+
+        <ul class="top-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-wrap">
+        <div class="hero-left">
+            <p class="hero-pill">Women Safety • AI Powered • Emergency Support</p>
+            <h1>Feel Safer,<br>Stay Stronger</h1>
+            <p>
+                SafeHer is a women safety platform with emergency SOS, live location,
+                smart alerts and trusted contact support.
+            </p>
+            <div class="hero-actions">
+                <a href="/login" class="btn-primary">Get Started</a>
+                <a href="/auth" class="btn-secondary">Login Now</a>
+            </div>
+        </div>
+
+        <div class="hero-right glass-card">
+            <h3>Your Safety Companion</h3>
+            <p>One app for alerting, support and protection.</p>
+            <div class="mini-grid">
+                <div><i class="fa-solid fa-location-dot"></i><span>Live Tracking</span></div>
+                <div><i class="fa-solid fa-bell"></i><span>Instant Alerts</span></div>
+                <div><i class="fa-solid fa-user-group"></i><span>Trusted Contacts</span></div>
+                <div><i class="fa-solid fa-shield-heart"></i><span>Smart Protection</span></div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

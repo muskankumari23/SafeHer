@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>SafeHer Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left-panel">
+
+<div class="logo">SAFEHER</div>
+
+<div class="hero-text">
+
+<h1>SAFEHER</h1>
+
+<p>
+Women-only safety platform with AI protection,
+emergency alerts, trusted contacts and community
+support built on trust, empathy and security.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="right-panel">
+
+<div class="login-card">
+
+<h2>Join the largest Safety Network for Women</h2>
+
+<button class="login-btn primary" onclick="window.location.href='/email-login'">
+Continue with Email / Mobile No.
+</button>
+
+<button class="login-btn facebook" onclick="window.location.href='/facebook-login'">
+<i class="fab fa-facebook"></i>
+Continue with Facebook
+</button>
+
+<button class="login-btn google" onclick="window.location.href='/google-login'">
+<i class="fab fa-google"></i>
+Continue with Google
+</button>
+
+<p class="terms">
+By continuing, you agree to our
+<a href="/terms">Terms</a>
+and
+<a href="/privacy">Privacy Policy</a>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

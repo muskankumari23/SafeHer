@@ -1,0 +1,170 @@
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#ffe4ec;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#274a99;
+color:white;
+}
+
+/* LOGO */
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:20px;
+font-weight:bold;
+}
+
+.logo-img{
+width:35px;
+height:35px;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links li{
+cursor:pointer;
+font-size:16px;
+}
+
+.nav-links li:hover{
+text-decoration:underline;
+}
+
+/* PROFILE */
+
+.profile{
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+}
+
+.profile-img{
+width:35px;
+height:35px;
+border-radius:50%;
+}
+
+.username{
+font-size:16px;
+}
+
+
+/* HERO SECTION */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:60px;
+background:#274a99;
+color:white;
+}
+
+.hero-text h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero-btn{
+background:#ff4d6d;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.hero-btn:hover{
+background:#ff2f55;
+}
+
+.hero img{
+width:260px;
+}
+
+
+/* MAP SECTION */
+
+.map-section{
+padding:40px;
+text-align:center;
+}
+
+#map{
+height:400px;
+margin-top:20px;
+border-radius:10px;
+}
+
+
+/* RISK BOX */
+
+.risk-box{
+text-align:center;
+padding:40px;
+}
+
+#riskLevel{
+font-size:30px;
+color:red;
+margin:15px;
+}
+
+#sosBtn{
+background:red;
+color:white;
+padding:20px;
+font-size:22px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+}
+
+
+/* IMPACT SECTION */
+
+.impact{
+padding:60px;
+text-align:center;
+background:white;
+}
+
+.impact-grid{
+display:flex;
+justify-content:center;
+gap:50px;
+margin-top:30px;
+}
+
+.impact-card{
+background:#ffe4ec;
+padding:30px;
+border-radius:10px;
+width:200px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.impact-card h3{
+color:#ff4d6d;
+font-size:32px;
+margin-bottom:10px;
+}
