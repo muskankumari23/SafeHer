@@ -33,7 +33,19 @@ function initSOS() {
                     alertedInfo = "📞 " + alertedInfo;
                 }
 
-                statusText.innerHTML = `Alert Sent to:<br/>${alertedInfo}`;
+                if (data.twilio_status === "success") {
+                    statusText.innerHTML = `SMS Successfully Sent to:<br/>${alertedInfo}`;
+                    statusText.style.color = "#2e7d32"; // Green for success
+                } else if (data.twilio_status === "failed") {
+                    if (data.twilio_error && data.twilio_error.includes("Credentials missing")) {
+                        statusText.innerHTML = `SMS Not Sent (Twilio not configured).<br/>Simulated for:<br/>${alertedInfo}`;
+                        statusText.style.color = "#f57c00"; // Orange warning
+                    } else {
+                        statusText.innerHTML = `SMS Failed: ${data.twilio_error || 'Unknown Error'}.<br/>Simulated for:<br/>${alertedInfo}`;
+                    }
+                } else {
+                    statusText.innerHTML = `Alert Sent to:<br/>${alertedInfo}`;
+                }
 
                 // Clear the status text after 10 seconds
                 setTimeout(() => { statusText.innerHTML = ""; }, 10000);

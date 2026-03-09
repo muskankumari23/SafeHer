@@ -4,9 +4,13 @@ import os
 import joblib
 import numpy as np
 from werkzeug.security import generate_password_hash, check_password_hash
+from dotenv import load_dotenv
+from twilio.rest import Client
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "safeher_production_secret_key"
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "safeher_production_secret_key")
 
 DB_PATH = "database/users.db"
 MODEL_PATH = "model/risk_model.pkl"
@@ -239,8 +243,7 @@ def calculate_risk():
 @app.route("/api/alert", methods=["POST"])
 def trigger_alert():
     """
-    Simulates sending an emergency alert via SMS/Call.
-    In a real app, integrate Twilio here.
+    Sends an emergency alert via Twilio SMS.
     """
     data = request.json
     lat = data.get("lat")
@@ -250,23 +253,55 @@ def trigger_alert():
     maps_link = f"https://maps.google.com/?q={lat},{lng}" if lat and lng else "Location Unavailable"
     user_name = session.get("name", "User")
     
-    # Get contacts to alert
-    contacts_to_alert = [c for c in [session.get('contact1'), session.get('contact2'), '+19998887777'] if c]
+    # Get contacts to alert (excluding mock local police for real SMS if desired, but keeping fallback printing)
+    contacts_to_alert = [c for c in [session.get('contact1'), session.get('contact2')] if c]
     
-    message = (
+    message_body = (
         f"SafeHer ALARM from {user_name}! "
         f"Detected Risk: {risk_level}. "
-        f"Location: {maps_link} "
-        "Triggering Emergency APIs..."
+        f"Location: {maps_link}"
     )
     
     print("\n" + "="*50)
     print("🚨 EMERGENCY ALERT TRIGGERED 🚨")
-    print(f"Message Sent to Contacts: {', '.join(contacts_to_alert)}")
-    print(message)
+    print(f"Message Initiated for Contacts: {', '.join(contacts_to_alert)}")
+    print(message_body)
     print("="*50 + "\n")
 
-    return jsonify({"status": "alert_sent", "message": message, "alerted_contacts": contacts_to_alert})
+    # Twilio Integration
+    account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+    auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+    twilio_number = os.getenv('TWILIO_PHONE_NUMBER')
+    
+    twilio_success = False
+    twilio_error = None
+    
+    if account_sid and auth_token and twilio_number:
+        try:
+            client = Client(account_sid, auth_token)
+            for contact in contacts_to_alert:
+                if contact:
+                    msg = client.messages.create(
+                        body=message_body,
+                        from_=twilio_number,
+                        to=contact
+                    )
+                    print(f"Twilio SMS sent to {contact}, SID: {msg.sid}")
+            twilio_success = True
+        except Exception as e:
+            print(f"Twilio SMS Error: {e}")
+            twilio_error = str(e)
+    else:
+        print("Twilio credentials missing in .env. SMS not actually sent.")
+        twilio_error = "Credentials missing in environment."
+
+    return jsonify({
+        "status": "alert_sent", 
+        "message": message_body, 
+        "alerted_contacts": contacts_to_alert,
+        "twilio_status": "success" if twilio_success else "failed",
+        "twilio_error": twilio_error
+    })
 
 
 if __name__ == "__main__":
