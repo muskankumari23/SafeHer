@@ -1,23 +1,27 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 import sqlite3
 import os
+import sys
 import joblib
 import numpy as np
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from twilio.rest import Client
 
+# Add parent directory to path to import config modules
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "safeher_production_secret_key")
 
-DB_PATH = "database/users.db"
-MODEL_PATH = "model/risk_model.pkl"
+DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "users.db")
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "ml_model", "risk_model.pkl")
 
 # Initialize DB if not exists
 if not os.path.exists(DB_PATH):
-    import create_db
+    from config import create_db
     print("Initializing Database...")
 
 # Load ML Model
