@@ -56,6 +56,23 @@ SafeHer/
 
 ---
 
+## 📸 Screenshots
+
+### 🔐 Login Page
+<p align="center">
+  <img src="assets/LoginPage.png" alt="Login Page" width="700"/>
+</p>
+
+### 🏠 Dashboard
+<p align="center">
+  <img src="assets/Dashboard.png" alt="Dashboard" width="700"/>
+</p>
+
+### 🚨 SOS Alert System
+<p align="center">
+  <img src="assets/RiskAnalysis.png" alt="SOS Alert" width="700"/>
+</p>
+
 ## ⚙️ How to Run the Project
 
 Clone the repository
