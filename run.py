@@ -9,7 +9,7 @@ import sys
 # Add src directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-from src.app import app
+from src.api import app
 
 if __name__ == '__main__':
     # Development server
