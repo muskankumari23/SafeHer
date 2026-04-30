@@ -60,7 +60,7 @@ SafeHer/
 
 ### 🔐 Login Page
 <p align="center">
-  <img src="assets/LoginPage.png" alt="Login Page" width="700"/>
+  <img src="assets/loginPage.png" alt="Login Page" width="700"/>
 </p>
 
 ### 🏠 Dashboard
@@ -68,7 +68,7 @@ SafeHer/
   <img src="assets/Dashboard.png" alt="Dashboard" width="700"/>
 </p>
 
-### 🚨 SOS Alert System
+### 🚨 Risk Ananlysis
 <p align="center">
   <img src="assets/RiskAnalysis.png" alt="SOS Alert" width="700"/>
 </p>
@@ -78,7 +78,7 @@ SafeHer/
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/safeher.git
+git clone https://github.com/muskankumari23/SafeHer
 ```
 
 Open the project folder
@@ -100,20 +100,6 @@ Open in browser
 ```
 http://127.0.0.1:5000
 ```
-
----
-
-## 📸 Screenshots
-
-### Login Page
-![Login](images/login.png)
-
-### Dashboard
-![Dashboard](images/dashboard.png)
-
-### SOS Alert
-![SOS](images/sos.png)
-
 ---
 
 ## 🎯 Purpose
